@@ -1,20 +1,20 @@
-# Esta clase representa un ejercicio individual y contiene información básica sobre el tipo de ejercicio, la duración y otros detalles.
+
 class Ejercicio():
-    def __init__(self, nombre, grupo_muscular, nivel_dificultad, repeticiones, series):
-        self.nombre = nombre
+    def __init__(self, nombre_ejercicio, grupo_muscular, nivel_dificultad, repeticiones, series):
+        self.nombre_ejercicio = nombre_ejercicio
         self.grupo_muscular = grupo_muscular
         self.nivel_dificultad = nivel_dificultad
         self.repeticiones = repeticiones
         self.series = series
 
     def mostrar_informacion(self):
-        print('############################')
-        print("NOMBRE: " + self.nombre)
+     
+        print("NOMBRE: " + self.nombre_ejercicio)
         print("GRUPO MUSCULAR: " + self.grupo_muscular)
         print("NIVEL DE DIFICULTAD: " + self.nivel_dificultad)
         print("REPETICIONES: " + str(self.repeticiones))
         print("SERIES: " + str(self.series))
-        print('############################')
+       
         print("\n")
 
     # Evaluar la dificultad
@@ -52,21 +52,71 @@ ejercicio18 = Ejercicio("Zancadas", "Piernas", "Intermedio", 12, 3)
 ejercicio19 = Ejercicio("Press de hombro con mancuernas", "Hombros", "Intermedio", 10, 3)
 ejercicio20 = Ejercicio("Russian Twist", "Abdominales", "Intermedio", 20, 3)
 
-todos_ejercicios = [ejercicio1, ejercicio2, ejercicio3, ejercicio4, ejercicio5, ejercicio6, ejercicio7, ejercicio8, ejercicio9, ejercicio10, ejercicio11, ejercicio12, ejercicio13, ejercicio14, ejercicio15, ejercicio16, ejercicio17, ejercicio18, ejercicio19, ejercicio20]
 
-for ejercicio in todos_ejercicios:
-    ejercicio.mostrar_informacion()
+class Rutina(Ejercicio):
 
-# Evaluar la dificultad
-print("Apto para principiante?: ", ejercicio1.es_apto_para('Principiante'))
-print('Apto para intermedio?: ', ejercicio1.es_apto_para('Intermedio'))
-print('Apto para avanzado?: ', ejercicio1.es_apto_para('Avanzado'))
+    def __init__(self, nombre_rutina, grupo_muscular, nivel_dificultad, repeticiones, series, objetivo, nivel_rutina):
+        # Llamada a __init__ de la clase base (Ejercicio)
+        super().__init__(nombre_rutina, grupo_muscular, nivel_dificultad, repeticiones, series)
 
-# Incrementar intensidad
-print("\n########################\nEjercicio sin cambiar:")
-ejercicio1.mostrar_informacion()
+        # Atributos de Rutina  
+        self.objetivo = objetivo
+        self.nivel_rutina = nivel_rutina
+    
 
-ejercicio1.incrementar_intensidad(incremento_repeticiones=2, incremento_series=1)
+        self.lista_ejercicios = []
 
-print("########################\nEjercicio cambiado:")
-ejercicio1.mostrar_informacion()
+    def agregar_ejercicio(self, ejercicio):
+   
+        self.lista_ejercicios.append(ejercicio)
+
+    def remover_ejercicio(self, nombre):
+
+        for ejercicio_ in self.lista_ejercicios:
+            if ejercicio_.nombre_ejercicio == nombre:
+                self.lista_ejercicios.remove(ejercicio_)
+                break
+        else:
+            print("Ese ejercicio no se encuentra en la rutina.")
+
+    def mostrar_rutina(self):
+ 
+        print('############################')
+        print(f"     ** RUTINA: {self.nombre_ejercicio} **")
+        print('----------------------------')
+        print(f"   Objetivo: {self.objetivo}")
+        print(f"   Nivel de la Rutina: {self.nivel_rutina}")
+        print('----------------------------')
+        print("   Ejercicios en la rutina:")
+        print('============================')
+        for ejercicio in self.lista_ejercicios:
+            ejercicio.mostrar_informacion()
+
+        print('############################\n')
+
+
+# Crear una rutina como un tipo de Ejercicio
+rutina = Rutina(
+    nombre_rutina="Rutina de Fuerza", 
+    grupo_muscular="Cuerpo completo", 
+    nivel_dificultad="Intermedio", 
+    repeticiones=0,  # Estos pueden quedar en 0 ya que no los usaremos directamente
+    series=0, 
+    objetivo="Ganar masa muscular", 
+    nivel_rutina="Intermedio"
+)
+
+# Crear algunos ejercicios
+ejercicio1 = Ejercicio("Flexiones", "Pectorales", "Intermedio", 10, 3)
+ejercicio2 = Ejercicio("Sentadillas", "Piernas", "Principiante", 15, 3)
+
+# Agregar ejercicios a la rutina
+rutina.agregar_ejercicio(ejercicio1)
+rutina.agregar_ejercicio(ejercicio2)
+
+# Mostrar la rutina completa con los ejercicios
+rutina.mostrar_rutina()
+
+# Prueba de remover un ejercicio y mostrar la rutina actualizada
+rutina.remover_ejercicio("Sentadillas")
+rutina.mostrar_rutina()
