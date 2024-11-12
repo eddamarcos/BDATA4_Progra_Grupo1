@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clase_EjercicioRutina &#8212; prueba V0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=ef7a4b45" />
+    <script src="../_static/documentation_options.js?v=d7293a1c"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">prueba</a></h1>
+
+
+
+<p class="blurb">Documentación de prueba</p>
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for Clase_EjercicioRutina</h1><div class="highlight"><pre>
+<div class="viewcode-block" id="Ejercicio">
+<a class="viewcode-back" href="../index.html#Clase_EjercicioRutina.Ejercicio">[docs]</a>
+<span></span><span class="k">class</span> <span class="nc">Ejercicio</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Representa un ejercicio de entrenamiento físico.</span>
+
+<span class="sd">    :param nombre_ejercicio: Nombre del ejercicio.</span>
+<span class="sd">    :type nombre_ejercicio: str</span>
+<span class="sd">    :param grupo_muscular: Grupo muscular principal que trabaja el ejercicio.</span>
+<span class="sd">    :type grupo_muscular: str</span>
+<span class="sd">    :param nivel_dificultad: Nivel de dificultad del ejercicio (e.g., Principiante, Intermedio, Avanzado).</span>
+<span class="sd">    :type nivel_dificultad: str</span>
+<span class="sd">    :param repeticiones: Número de repeticiones recomendadas.</span>
+<span class="sd">    :type repeticiones: int</span>
+<span class="sd">    :param series: Número de series recomendadas.</span>
+<span class="sd">    :type series: int</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nombre_ejercicio</span><span class="p">,</span> <span class="n">grupo_muscular</span><span class="p">,</span> <span class="n">nivel_dificultad</span><span class="p">,</span> <span class="n">repeticiones</span><span class="p">,</span> <span class="n">series</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nombre_ejercicio</span> <span class="o">=</span> <span class="n">nombre_ejercicio</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">grupo_muscular</span> <span class="o">=</span> <span class="n">grupo_muscular</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nivel_dificultad</span> <span class="o">=</span> <span class="n">nivel_dificultad</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">repeticiones</span> <span class="o">=</span> <span class="n">repeticiones</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">series</span> <span class="o">=</span> <span class="n">series</span>
+
+<div class="viewcode-block" id="Ejercicio.mostrar_informacion">
+<a class="viewcode-back" href="../index.html#Clase_EjercicioRutina.Ejercicio.mostrar_informacion">[docs]</a>
+    <span class="k">def</span> <span class="nf">mostrar_informacion</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Muestra la información completa del ejercicio.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;NOMBRE: &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">nombre_ejercicio</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;GRUPO MUSCULAR: &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">grupo_muscular</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;NIVEL DE DIFICULTAD: &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">nivel_dificultad</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;REPETICIONES: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">repeticiones</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;SERIES: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">series</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Ejercicio.es_apto_para">
+<a class="viewcode-back" href="../index.html#Clase_EjercicioRutina.Ejercicio.es_apto_para">[docs]</a>
+    <span class="k">def</span> <span class="nf">es_apto_para</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nivel_usuario</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Evalúa si el ejercicio es apto para el nivel del usuario.</span>
+
+<span class="sd">        :param nivel_usuario: Nivel de experiencia del usuario.</span>
+<span class="sd">        :type nivel_usuario: str</span>
+<span class="sd">        :return: Verdadero si el usuario tiene el nivel adecuado, Falso en caso contrario.</span>
+<span class="sd">        :rtype: bool</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">niveles</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Principiante&quot;</span><span class="p">,</span> <span class="s2">&quot;Intermedio&quot;</span><span class="p">,</span> <span class="s2">&quot;Avanzado&quot;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">niveles</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">nivel_usuario</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">niveles</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nivel_dificultad</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Ejercicio.incrementar_intensidad">
+<a class="viewcode-back" href="../index.html#Clase_EjercicioRutina.Ejercicio.incrementar_intensidad">[docs]</a>
+    <span class="k">def</span> <span class="nf">incrementar_intensidad</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">incremento_repeticiones</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">incremento_series</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Incrementa la intensidad del ejercicio.</span>
+
+<span class="sd">        :param incremento_repeticiones: Incremento en el número de repeticiones.</span>
+<span class="sd">        :type incremento_repeticiones: int</span>
+<span class="sd">        :param incremento_series: Incremento en el número de series.</span>
+<span class="sd">        :type incremento_series: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">repeticiones</span> <span class="o">+=</span> <span class="n">incremento_repeticiones</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">series</span> <span class="o">+=</span> <span class="n">incremento_series</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="Rutina">
+<a class="viewcode-back" href="../index.html#Clase_EjercicioRutina.Rutina">[docs]</a>
+<span class="k">class</span> <span class="nc">Rutina</span><span class="p">(</span><span class="n">Ejercicio</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Representa una rutina de ejercicios, que incluye varios ejercicios individuales.</span>
+
+<span class="sd">    :param nombre_rutina: Nombre de la rutina.</span>
+<span class="sd">    :type nombre_rutina: str</span>
+<span class="sd">    :param grupo_muscular: Grupo muscular principal al que está dirigida la rutina.</span>
+<span class="sd">    :type grupo_muscular: str</span>
+<span class="sd">    :param nivel_dificultad: Nivel de dificultad de la rutina.</span>
+<span class="sd">    :type nivel_dificultad: str</span>
+<span class="sd">    :param repeticiones: Repeticiones iniciales para la rutina (generalmente 0).</span>
+<span class="sd">    :type repeticiones: int</span>
+<span class="sd">    :param series: Series iniciales para la rutina (generalmente 0).</span>
+<span class="sd">    :type series: int</span>
+<span class="sd">    :param objetivo: Objetivo principal de la rutina, como “Ganar masa muscular”.</span>
+<span class="sd">    :type objetivo: str</span>
+<span class="sd">    :param nivel_rutina: Nivel de la rutina, como “Intermedio” o “Avanzado”.</span>
+<span class="sd">    :type nivel_rutina: str</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nombre_rutina</span><span class="p">,</span> <span class="n">grupo_muscular</span><span class="p">,</span> <span class="n">nivel_dificultad</span><span class="p">,</span> <span class="n">repeticiones</span><span class="p">,</span> <span class="n">series</span><span class="p">,</span> <span class="n">objetivo</span><span class="p">,</span> <span class="n">nivel_rutina</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">nombre_rutina</span><span class="p">,</span> <span class="n">grupo_muscular</span><span class="p">,</span> <span class="n">nivel_dificultad</span><span class="p">,</span> <span class="n">repeticiones</span><span class="p">,</span> <span class="n">series</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">objetivo</span> <span class="o">=</span> <span class="n">objetivo</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nivel_rutina</span> <span class="o">=</span> <span class="n">nivel_rutina</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lista_ejercicios</span> <span class="o">=</span> <span class="p">[]</span>
+
+<div class="viewcode-block" id="Rutina.agregar_ejercicio">
+<a class="viewcode-back" href="../index.html#Clase_EjercicioRutina.Rutina.agregar_ejercicio">[docs]</a>
+    <span class="k">def</span> <span class="nf">agregar_ejercicio</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ejercicio</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Agrega un ejercicio a la rutina.</span>
+
+<span class="sd">        :param ejercicio: El ejercicio que se agregará a la lista de ejercicios de la rutina.</span>
+<span class="sd">        :type ejercicio: Ejercicio</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lista_ejercicios</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ejercicio</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Rutina.remover_ejercicio">
+<a class="viewcode-back" href="../index.html#Clase_EjercicioRutina.Rutina.remover_ejercicio">[docs]</a>
+    <span class="k">def</span> <span class="nf">remover_ejercicio</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nombre</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Remueve un ejercicio de la rutina basado en su nombre.</span>
+
+<span class="sd">        :param nombre: Nombre del ejercicio a remover.</span>
+<span class="sd">        :type nombre: str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">ejercicio_</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">lista_ejercicios</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">ejercicio_</span><span class="o">.</span><span class="n">nombre_ejercicio</span> <span class="o">==</span> <span class="n">nombre</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">lista_ejercicios</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">ejercicio_</span><span class="p">)</span>
+                <span class="k">break</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ese ejercicio no se encuentra en la rutina.&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Rutina.mostrar_rutina">
+<a class="viewcode-back" href="../index.html#Clase_EjercicioRutina.Rutina.mostrar_rutina">[docs]</a>
+    <span class="k">def</span> <span class="nf">mostrar_rutina</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Muestra la rutina completa con todos los ejercicios y sus detalles.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;############################&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;     ** RUTINA: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">nombre_ejercicio</span><span class="si">}</span><span class="s2"> **&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;----------------------------&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   Objetivo: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">objetivo</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   Nivel de la Rutina: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">nivel_rutina</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;----------------------------&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;   Ejercicios en la rutina:&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;============================&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">ejercicio</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">lista_ejercicios</span><span class="p">:</span>
+            <span class="n">ejercicio</span><span class="o">.</span><span class="n">mostrar_informacion</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;############################</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span></div>
+</div>
+
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &#169;2024, edda.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.4.7</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
