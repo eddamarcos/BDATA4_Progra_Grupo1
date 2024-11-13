@@ -1,128 +1,128 @@
-class Usuario:
-    def __init__(self, nombre, altura, peso, edad, genero, nivel_condicion_fisica="Principiante", objetivo="Mantenimiento"):
-        """Crea un objeto de tipo Usuario con una serie de atributos como el nombre, altura, peso, edad, género, nivel de condición física y objetivo.
+class User:
+    def __init__(self, name, height, weight, age, gender, fitness_level="Beginner", goal="Maintenance"):
+        """Creates a User object with attributes such as name, height, weight, age, gender, fitness level, and goal.
 
         Args:
-            nombre (str): Nombre del usuario.
-            altura (float): Altura en metros.
-            peso (float): Peso en kilogramos.
-            edad (int): Edad en años.
-            genero (str): Género del usuario. Puede ser 'mujer' o 'hombre'.
-            nivel_condicion_fisica (str, optional): Nivel de condición física del usuario. Puede ser 'Principiante', 'Intermedio' o 'Avanzado'. Defaults to "Principiante".
-            objetivo (str, optional): El objetivo del usuario. Puede ser 'Perder peso', 'Ganar músculo' o 'Mantenimiento'. Defaults to "Mantenimiento".
+            name (str): User's name.
+            height (float): Height in meters.
+            weight (float): Weight in kilograms.
+            age (int): Age in years.
+            gender (str): Gender of the user. Can be 'female' or 'male'.
+            fitness_level (str, optional): Fitness level of the user. Can be 'Beginner', 'Intermediate', or 'Advanced'. Defaults to "Beginner".
+            goal (str, optional): The user's goal. Can be 'Lose weight', 'Gain muscle', or 'Maintenance'. Defaults to "Maintenance".
         """
-        self.nombre = nombre 
-        self.altura = altura
-        self.peso = peso
-        self.edad = edad
-        self.genero = genero.lower()
-        self.nivel_condicion_fisica = nivel_condicion_fisica
-        self.objetivo = objetivo
+        self.name = name 
+        self.height = height
+        self.weight = weight
+        self.age = age
+        self.gender = gender.lower()
+        self.fitness_level = fitness_level
+        self.goal = goal
 
-        self.actividad = None
-        self.calorias_quemadas = None
+        self.activity = None
+        self.calories_burned = None
 
-        niveles_validos = ["Principiante", "Intermedio", "Avanzado"]
-        objetivos_validos = ["Perder peso", "Ganar músculo", "Mantenimiento"]
-        generos_validos = ["mujer", "hombre"]
+        valid_levels = ["Beginner", "Intermediate", "Advanced"]
+        valid_goals = ["Lose weight", "Gain muscle", "Maintenance"]
+        valid_genders = ["female", "male"]
 
-        # Validación del nivel de condición física
-        if nivel_condicion_fisica not in niveles_validos:
-            raise ValueError(f"Nivel de condición física no es válido. Debe ser uno de: {niveles_validos}")
-        if objetivo not in objetivos_validos:
-            raise ValueError(f"Objetivo no válido. Debe ser uno de: {objetivos_validos}")
-        if genero not in generos_validos:
-            raise ValueError(f"Género no válido. Debe ser uno de: {generos_validos}")
+        # Validate fitness level
+        if fitness_level not in valid_levels:
+            raise ValueError(f"Fitness level is not valid. It must be one of: {valid_levels}")
+        if goal not in valid_goals:
+            raise ValueError(f"Goal is not valid. It must be one of: {valid_goals}")
+        if gender not in valid_genders:
+            raise ValueError(f"Gender is not valid. It must be one of: {valid_genders}")
     
-    # Calcular el índice de masa corporal
-    def calcular_imc(self):
-        """Calcula el índice de masa corporal (IMC) del usuario.
+    # Calculate the body mass index (BMI)
+    def calculate_bmi(self):
+        """Calculates the user's body mass index (BMI).
 
         Returns:
-            float: Indice de masa corporal del usuario.
+            float: User's body mass index.
         """
-        indice_masa_corporal = round(self.peso / (self.altura ** 2), 2)
-        return indice_masa_corporal
+        bmi = round(self.weight / (self.height ** 2), 2)
+        return bmi
     
-    # Calcular el índice de la grasa corporal
-    def calcular_grasa_corporal(self):
-        """Calcula el índice de grasa corporal del usuario.
+    # Calculate the body fat percentage
+    def calculate_body_fat(self):
+        """Calculates the user's body fat percentage.
 
         Returns:
-            float: El indice de grasa corporal en porcentaje.
+            float: The body fat percentage.
         """
-        imc = self.calcular_imc()
+        bmi = self.calculate_bmi()
         
-        if self.genero == 'hombre':
-            grasa_corportal_hom = 1.20 * imc + 0.23 * self.edad - 16.2
-            return round(grasa_corportal_hom,2)
-        elif self.genero == 'mujer':
-            grasa_corporal_muj = 1.20 * imc + 0.23 * self.edad - 5.4
-            return round(grasa_corporal_muj, 2)
+        if self.gender == 'male':
+            body_fat_male = 1.20 * bmi + 0.23 * self.age - 16.2
+            return round(body_fat_male, 2)
+        elif self.gender == 'female':
+            body_fat_female = 1.20 * bmi + 0.23 * self.age - 5.4
+            return round(body_fat_female, 2)
         else:
-            raise ValueError("Género no reconocido.")
+            raise ValueError("Unrecognized gender.")
         
 
-    # Calcular la cantidad de calorías quemadas según duración, tipo y peso    
-    def calorias_actividad(self, duracion, actividad):
-        """Calcula la cantidad de calorías quemadas durante una actividad física.
+    # Calculate the number of calories burned based on duration, activity, and weight    
+    def calories_activity(self, duration, activity):
+        """Calculates the number of calories burned during a physical activity.
 
         Args:
-            duracion (float): Duración de la actividad en minutos.
-            actividad (str): Nombre de la actividad física.
+            duration (float): Duration of the activity in minutes.
+            activity (str): Name of the physical activity.
 
         Raises:
             ValueError: _description_
         """
-        peso = self.peso
+        weight = self.weight
 
-        # METs estimados
-        met_values = {"flexiones": 4.0, "sentadillas": 5.0, "plancha": 4.0, "dominadas": 8.0, "curl de bíceps": 3.5, "press de banca": 6.0, "fondos de triceps": 6.5, "remo con barra": 7.0,
-        "extensión de pierna": 3.0, "curl de pierna": 3.0, "elevaciones laterales": 3.0, "press militar": 6.5, "crunch abdominal": 3.5, "burpees": 8.0, "escaladores": 6.5, 
-        "sentadilla búlgara": 5.5, "peso muerto": 7.5, "zancadas": 5.5, "press de hombro con mancuernas": 6.0, "russian twist": 4.0}
+        # Estimated MET values
+        met_values = {"push-ups": 4.0, "squats": 5.0, "plank": 4.0, "pull-ups": 8.0, "bicep curl": 3.5, "bench press": 6.0, "triceps dips": 6.5, "barbell row": 7.0,
+        "leg extension": 3.0, "leg curl": 3.0, "lateral raises": 3.0, "military press": 6.5, "ab crunch": 3.5, "burpees": 8.0, "mountain climbers": 6.5, 
+        "bulgarian squat": 5.5, "deadlift": 7.5, "lunges": 5.5, "dumbbell shoulder press": 6.0, "russian twist": 4.0}
         
-        met = met_values.get(actividad.lower())
+        met = met_values.get(activity.lower())
         if met:
-            self.actividad = actividad
-            self.calorias_quemadas = met * peso * (duracion / 60)
+            self.activity = activity
+            self.calories_burned = met * weight * (duration / 60)
         else:
-            raise ValueError("Actividad no reconocida.")
+            raise ValueError("Unrecognized activity.")
         
-    # funcion para mostrar toda la info de usuario
-    def mostrar_info(self):
-        """Muestra toda la información del usuario en pantalla.
+    # Function to display all user information
+    def show_info(self):
+        """Displays all user information on the screen.
         """
-        print(f"Nombre: {self.nombre}")
-        print(f"Altura: {self.altura} m")
-        print(f"Peso: {self.peso} kg")
-        print(f"Edad: {self.edad} años")
-        print(f"Género: {self.genero}")
-        print(f"Nivel de condición física: {self.nivel_condicion_fisica}")
-        print(f"Objetivo: {self.objetivo}")
-        print(f"Índice de masa corporal: {self.calcular_imc()}")
-        print(f"Grasa corporal: {self.calcular_grasa_corporal()} %")
+        print(f"Name: {self.name}")
+        print(f"Height: {self.height} m")
+        print(f"Weight: {self.weight} kg")
+        print(f"Age: {self.age} years")
+        print(f"Gender: {self.gender}")
+        print(f"Fitness level: {self.fitness_level}")
+        print(f"Goal: {self.goal}")
+        print(f"Body mass index: {self.calculate_bmi()}")
+        print(f"Body fat: {self.calculate_body_fat()} %")
         
-        if self.calorias_quemadas is not None:
-            print(f"Calorías quemadas realizando {self.actividad}: {self.calorias_quemadas:.2f} kcal")
+        if self.calories_burned is not None:
+            print(f"Calories burned doing {self.activity}: {self.calories_burned:.2f} kcal")
         else:
-            print("Las calorías quemadas aún no han sido calculadas.")
+            print("Calories burned have not been calculated yet.")
 
 
-# Crear una instancia de Usuario
-usuario = Usuario(nombre="Marta", altura=1.57, peso=43, edad=21, genero="mujer")
+# Create an instance of User
+user = User(name="Marta", height=1.57, weight=43, age=21, gender="female")
 
-# Actualizar datos personales
-usuario.nombre = "María"
+# Update personal data
+user.name = "Maria"
 
-# Calculos del usuario
-imc = usuario.calcular_imc()
+# User calculations
+bmi = user.calculate_bmi()
 
-# Calculos grasa corporal
-gr_corporal = usuario.calcular_grasa_corporal()
+# Body fat calculations
+body_fat = user.calculate_body_fat()
 
-# Calculos de quema de calorias
-# calorias = usuario.calorias_actividad(30, "a")
-calorias = usuario.calorias_actividad(30, "burpees")
+# Calories burned calculations
+# calories = user.calories_activity(30, "a")
+calories = user.calories_activity(30, "burpees")
 
-# Mostrar info del usuario
-usuario.mostrar_info()
+# Display user information
+user.show_info()
