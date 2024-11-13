@@ -16,8 +16,8 @@ Welcome to the documentation for structuring and organizing your fitness agenda 
    :maxdepth: 2
    :caption: Main Topics:
 
-* :ref:`genindex`
-* :ref:`search`
+   ExerciseRoutine
+
 
 
 
