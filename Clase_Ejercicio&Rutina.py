@@ -1,56 +1,73 @@
+class Exercise:
+    """
+    Class representing an individual exercise, containing basic information about the exercise type, difficulty, and other details.
+    
+    Contains the following attributes:
+    - exercise_name: Exercise name
+    - muscle_group: Muscle group targeted by the exercise
+    - difficulty_level: Difficulty level of the exercise (Beginner, Intermediate, Advanced)
+    - repetitions: Number of repetitions per set
+    - sets: Number of sets of the exercise
 
-class Exercise():
-    def __init__(self, exercise_name, grupo_muscular, nivel_dificultad, repeticiones, series):
+    Contains the following methods:
+    - show_information: Displays the information about the exercise
+    - is_suitable_for: Evaluates if the exercise is suitable for a user with a given difficulty level
+    - increase_intensity: Increases the number of repetitions and/or sets of the exercise
+    """
+    def __init__(self, exercise_name, muscle_group, difficulty_level, repetitions, sets):
+        """Method to initialize an exercise with the necessary attributes.
+
+        Args:
+            exercise_name (str): Name of the exercise
+            muscle_group (str): Involved muscle group
+            difficulty_level (str): Difficulty level of the exercise
+            repetitions (int): Number of repetitions
+            sets (int): Number of sets
+        """
         self.exercise_name = exercise_name
-        self.grupo_muscular = grupo_muscular
-        self.nivel_dificultad = nivel_dificultad
-        self.repeticiones = repeticiones
-        self.series = series
+        self.muscle_group = muscle_group
+        self.difficulty_level = difficulty_level
+        self.repetitions = repetitions
+        self.sets = sets
 
-    def mostrar_informacion(self):
-     
-        print("NOMBRE: " + self.exercise_name)
-        print("GRUPO MUSCULAR: " + self.grupo_muscular)
-        print("NIVEL DE DIFICULTAD: " + self.nivel_dificultad)
-        print("REPETICIONES: " + str(self.repeticiones))
-        print("SERIES: " + str(self.series))
-       
+    def show_information(self):
+        """
+        Method that displays the information about the exercise.
+        """
+        print('############################')
+        print("NAME: " + self.exercise_name)
+        print("MUSCLE GROUP: " + self.muscle_group)
+        print("DIFFICULTY LEVEL: " + self.difficulty_level)
+        print("REPETITIONS: " + str(self.repetitions))
+        print("SETS: " + str(self.sets))
+        print('############################')
         print("\n")
 
-    # Evaluar la dificultad
-    def es_apto_para(self, nivel_usuario):
-        niveles = ["Principiante", "Intermedio", "Avanzado"]
-        if niveles.index(nivel_usuario) >= niveles.index(self.nivel_dificultad):
+    def is_suitable_for(self, user_level):
+        """
+        Method to evaluate if the exercise is suitable for a user with a given difficulty level.
+
+        Args:
+            user_level (str): User's knowledge level (Beginner, Intermediate, Advanced)
+
+        Returns:
+            Boolean: Returns true if the user can perform the exercise given their level, false otherwise.
+        """
+        levels = ["Beginner", "Intermediate", "Advanced"]
+        if levels.index(user_level) >= levels.index(self.difficulty_level):
             return True
         return False
 
-    # Incrementar repeticiones y/o series
-    def incrementar_intensidad(self, incremento_repeticiones=0, incremento_series=0):
-        self.repeticiones += incremento_repeticiones
-        self.series += incremento_series
+    def increase_intensity(self, repetitions_increase, sets_increase):
+        """
+        Method to increase the number of repetitions and/or sets of the exercise.
 
-
-    
-ejercicio1 = Exercise("Flexiones", "Pectorales", "Intermedio", 10, 3)
-ejercicio2 = Exercise("Sentadillas", "Piernas", "Principiante", 15, 3)
-ejercicio3 = Exercise("Plancha", "Abdominales", "Avanzado", 1, 3)
-ejercicio4 = Exercise("Dominadas", "Espalda", "Avanzado", 10, 3)
-ejercicio5 = Ejercicio("Curl de Bíceps", "Bíceps", "Intermedio", 10, 3)
-ejercicio6 = Ejercicio("Press de banca", "Pectorales", "Avanzado", 12, 4)
-ejercicio7 = Ejercicio("Fondos de triceps", "Tríceps", "Intermedio", 12, 3)
-ejercicio8 = Ejercicio("Remo con barra", "Espalda", "Avanzado", 10, 4)
-ejercicio9 = Ejercicio("Extensión de pierna", "Cuádriceps", "Principiante", 15, 3)
-ejercicio10 = Ejercicio("Curl de pierna", "Isquiotibiales", "Principiante", 15, 3)
-ejercicio11 = Ejercicio("Elevaciones laterales", "Hombros", "Intermedio", 12, 3)
-ejercicio12 = Ejercicio("Press militar", "Hombros", "Avanzado", 10, 4)
-ejercicio13 = Ejercicio("Crunch abdominal", "Abdominales", "Principiante", 20, 3)
-ejercicio14 = Ejercicio("Burpees", "Cuerpo completo", "Avanzado", 15, 4)
-ejercicio15 = Ejercicio("Escaladores", "Abdominales", "Intermedio", 20, 3)
-ejercicio16 = Ejercicio("Sentadilla búlgara", "Piernas", "Intermedio", 12, 3)
-ejercicio17 = Ejercicio("Peso muerto", "Espalda baja", "Avanzado", 10, 3)
-ejercicio18 = Ejercicio("Zancadas", "Piernas", "Intermedio", 12, 3)
-ejercicio19 = Ejercicio("Press de hombro con mancuernas", "Hombros", "Intermedio", 10, 3)
-ejercicio20 = Ejercicio("Russian Twist", "Abdominales", "Intermedio", 20, 3)
+        Args:
+            repetitions_increase (int): The number of repetitions to add to the initial value.
+            sets_increase (int): The number of sets to add to the initial value.
+        """
+        self.repetitions += repetitions_increase
+        self.sets += sets_increase
 
 class Routine(Exercise):
     """
