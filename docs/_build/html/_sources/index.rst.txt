@@ -17,12 +17,3 @@ Welcome to MyPackage's documentation!
    index2
    index3
 
-
-..    :maxdepth: 2
-..    :caption: Contents:
-
-.. .. automodule:: Clase_EjercicioRutina
-..    :members:
-..    :undoc-members:
-..    :show-inheritance:
-

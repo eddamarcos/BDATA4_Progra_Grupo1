@@ -1,5 +1,5 @@
 Documentation for script2.py
-===========================
+============================
 
-.. automodule:: Clase_Usuario
+.. automodule:: Class_user
    :members:
