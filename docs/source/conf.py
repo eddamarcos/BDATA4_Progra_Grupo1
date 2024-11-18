@@ -10,9 +10,9 @@ import os
 import sys
 sys.path.insert(0, os.path.abspath('.'))
 
-project = 'prueba'
-copyright = '2024, irati'
-author = 'irati'
+project = 'Plan Your Workout'
+copyright = '2024, Group 1'
+author = 'Group 1'
 release = '1'
 
 # -- General configuration ---------------------------------------------------

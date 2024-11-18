@@ -1,6 +1,22 @@
 class User:
-    """aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+
+    """Represents a user with attributes like name, height, weight, age, gender, fitness level, and goal.
+    Provides methods to calculate BMI, body fat percentage, and calories burned during activities, 
+    as well as displaying user information.
+
+    Contains the following attributes:
+      -  name: User's name.
+      - height: Height in meters.
+      - weight: Weight in kilograms.
+      -  age: Age in years.
+      -  gender: Gender of the user ('female' or 'male').
+      -  fitness_level: Fitness level ('Beginner', 'Intermediate', or 'Advanced').
+      -  goal: The user's goal ('Lose weight', 'Gain muscle', or 'Maintenance').
+      -  activity: Last activity performed.
+      -  duration: Duration of the activity in minutes.
+      -  calories_burned: Calories burned during the last activity.
     """
+
     def __init__(self, name, height, weight, age, gender, fitness_level="Beginner", goal="Maintenance"):
         """Creates a User object with attributes such as name, height, weight, age, gender, fitness level, and goal.
 
@@ -12,6 +28,9 @@ class User:
             gender (str): Gender of the user. Can be 'female' or 'male'.
             fitness_level (str, optional): Fitness level of the user. Can be 'Beginner', 'Intermediate', or 'Advanced'. Defaults to "Beginner".
             goal (str, optional): The user's goal. Can be 'Lose weight', 'Gain muscle', or 'Maintenance'. Defaults to "Maintenance".
+        
+        Raises:
+            ValueError: If `fitness_level`, `goal`, or `gender` have invalid values.
         """
         self.name = name 
         self.height = height
@@ -52,6 +71,9 @@ class User:
 
         Returns:
             float: The body fat percentage.
+
+        Raises:
+            ValueError: If `gender` is unrecognized.
         """
         bmi = self.calculate_bmi()
         
@@ -74,7 +96,11 @@ class User:
             activity (str): Name of the physical activity.
 
         Raises:
-            ValueError: _description_
+            ValueError: If the activity is not recognized.
+
+        Updates:
+            self.activity: Sets the current activity.
+            self.calories_burned: Sets the calories burned during the activity.
         """
         weight = self.weight
 

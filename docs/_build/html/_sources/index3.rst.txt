@@ -1,4 +1,4 @@
-Documentation for script2.py
+Documentation for Class User
 ============================
 
 .. automodule:: Class_user

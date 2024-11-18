@@ -1,5 +1,5 @@
-Documentation for script1.py
-============================
+Documentation for Classes Exercises and Routine
+===============================================
 
 .. automodule:: Class_exercise_routine
    :members:

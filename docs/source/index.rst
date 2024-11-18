@@ -8,7 +8,7 @@
 .. `reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_
 .. documentation for details.
 
-Welcome to MyPackage's documentation!
+Welcome to Plan your Workout documentation!
 ======================================
 
 .. toctree::
