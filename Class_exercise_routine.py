@@ -126,31 +126,4 @@ class Routine(Exercise):
         for exercise in self.exercise_list:
             exercise.show_information()
 
-        print('############################\n')
-
-
-# Create a routine as a type of Exercise
-routine = Routine(
-    routine_name="Strength Routine", 
-    muscle_group="Full Body", 
-    difficulty_level="Intermediate", 
-    repetitions=0,  # These can remain 0 as they will not be used directly
-    sets=0, 
-    goal="Gain muscle mass", 
-    routine_level="Intermediate"
-)
-
-# Create some exercises
-exercise1 = Exercise("Push-ups", "Chest", "Intermediate", 10, 3)
-exercise2 = Exercise("Squats", "Legs", "Beginner", 15, 3)
-
-# Add exercises to the routine
-routine.add_exercise(exercise1)
-routine.add_exercise(exercise2)
-
-# Display the complete routine with exercises
-routine.show_routine()
-
-# Test removing an exercise and displaying the updated routine
-routine.remove_exercise("Squats")
-routine.show_routine()
+        # print('############################\n')

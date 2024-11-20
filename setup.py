@@ -6,9 +6,9 @@ print(long_description)
 
 setup(
     name = 'Plan_Your_Workout',
-    version = '0.0.1',
+    version = '0.0.3',
     packages = find_packages(),
-    author = 'Grupo 1',
+    author = 'Grupo I',
     author_email = 'irati.artaraz@alumni.mondragon.edu',
     description = 'A Guide to Structuring Your Fitness Agenda',
     long_description = long_description,

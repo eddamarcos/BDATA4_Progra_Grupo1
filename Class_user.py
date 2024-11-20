@@ -1,6 +1,5 @@
 class User:
-    """aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-    """
+
     def __init__(self, name, height, weight, age, gender, fitness_level="Beginner", goal="Maintenance"):
         """Creates a User object with attributes such as name, height, weight, age, gender, fitness level, and goal.
 
@@ -108,23 +107,3 @@ class User:
             print(f"Calories burned doing {self.activity}: {self.calories_burned:.2f} kcal")
         else:
             print("Calories burned have not been calculated yet.")
-
-
-# Create an instance of User
-user = User(name="Marta", height=1.57, weight=43, age=21, gender="female")
-
-# Update personal data
-user.name = "Maria"
-
-# User calculations
-bmi = user.calculate_bmi()
-
-# Body fat calculations
-body_fat = user.calculate_body_fat()
-
-# Calories burned calculations
-# calories = user.calories_activity(30, "a")
-calories = user.calories_activity(30, "burpees")
-
-# Display user information
-user.show_info()
